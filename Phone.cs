@@ -91,12 +91,15 @@ namespace sipdotnet
         /// <param name="error"></param>
 		public delegate void OnError (Call call, Error error);
 
+        public delegate void OnLoadCall(Call call);
+
 		public event OnPhoneConnected PhoneConnectedEvent;
 		public event OnPhoneDisconnected PhoneDisconnectedEvent;
 		public event OnIncomingCall IncomingCallEvent;
 		public event OnCallActive CallActiveEvent;
 		public event OnCallCompleted CallCompletedEvent;
 		public event OnError ErrorEvent;
+        public event OnLoadCall LoadEvent;
 
 		Account account;
 
@@ -169,7 +172,7 @@ namespace sipdotnet
 
 			linphone.CallStateChangedEvent += (Call call) => {
 				Call.CallState state = call.GetState();
-
+                
 				switch (state) {
 				case Call.CallState.Active:
 					lineState = LineState.Busy;
@@ -182,6 +185,13 @@ namespace sipdotnet
 					if (call.GetCallType () == Call.CallType.Incoming)
 						if (IncomingCallEvent != null) 
 							IncomingCallEvent (call);
+                    if (call.GetCallType() == Call.CallType.Outcoming)
+                        {
+                            if (LoadEvent != null)
+                            {
+                                LoadEvent(call);
+                            }
+                        }
 					break;
 
                 case Call.CallState.Error:

@@ -41,5 +41,33 @@
     <Compile Include="Linphone.cs" />
     <Compile Include="Call.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="antlr3c.dll" />
+    <Content Include="avcodec-53.dll" />
+    <Content Include="avutil-51.dll" />
+    <Content Include="bctoolbox.dll" />
+    <Content Include="belcard.dll" />
+    <Content Include="bellesip.dll" />
+    <Content Include="belr.dll" />
+    <Content Include="bv16.dll" />
+    <Content Include="bzrtp.dll" />
+    <Content Include="gsm.dll" />
+    <Content Include="libbcg729.dll" />
+    <Content Include="linphone.dll" />
+    <Content Include="mbedcrypto.dll" />
+    <Content Include="mbedtls.dll" />
+    <Content Include="mbedx509.dll" />
+    <Content Include="mediastreamer_base.dll" />
+    <Content Include="mediastreamer_voip.dll" />
+    <Content Include="opus.dll" />
+    <Content Include="ortp.dll" />
+    <Content Include="speex.dll" />
+    <Content Include="speexdsp.dll" />
+    <Content Include="sqlite3.dll" />
+    <Content Include="srtp.dll" />
+    <Content Include="swscale-2.dll" />
+    <Content Include="xml2.dll" />
+    <Content Include="zlib.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
